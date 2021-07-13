@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="ipn"><input type="button" value="发送" id="but">
+    <script>
+        var inp = document.querySelector('#ipn');
+        var but = document.querySelector('#but');
+        var times = 4;
+
+        but.addEventListener('click', function() {
+            var fun = function() {
+                if (times == 0) {
+                    but.value = '发送';
+                    but.disabled = false;
+                    times = 4
+                    clearInterval(timer);
+
+                } else {
+                    times--;
+                    but.value = '还有' + times + '秒';
+                    but.disabled = true;
+                }
+
+            }
+            fun(); //先调用一下，防止点击后，过了1秒钟才有反应
+            var timer = setInterval(fun, 1000);
+
+        });
+    </script>
+</body>
+
+</html>

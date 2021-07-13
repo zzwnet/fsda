@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var date = new Date();
+        console.log(date); //返回的是当前时间
+        // Date() 括号里面如果跟参数， 就返回参数里面的时间
+        // 字符串格式 '2021-2-2 8:8:8'
+        var date1 = new Date('2021-2-2 8:8:8');
+        console.log(date1);
+
+        // 注意点！！！
+        // date.getMonth() 中返回的月份小1个月 是从0到11
+        // date.getDay(); 周一返回1 周日返回0
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var dates = date.getDate();
+        var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        var day = date.getDay();
+        console.log(year + '年' + month + '月' + dates + '日' + arr[day]);
+
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        // 添0
+        function add_zero(x) {
+            return x < 10 ? '0' + x : x;
+        }
+        h = add_zero(h);
+        m = add_zero(m);
+        s = add_zero(s);
+        console.log(h + ':' + m + ':' + s);
+        console.log(Date.now());
+    </script>
+</body>
+
+</html>

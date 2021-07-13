@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        input {
+            border: 0;
+            outline: 0;
+        }
+        
+        #ind {
+            /* 让其div居中对齐，在变化宽度时，会向两边延伸 */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 40px;
+            transition: all .6s;
+        }
+        
+        #inp1 {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 80px;
+            height: 40px;
+            padding-left: 10px;
+            font-size: 15px;
+            border: 1px solid #6868e7;
+            transition: all .6s;
+            z-index: 1;
+        }
+        
+        #inp1:hover {
+            transform: scaleX();
+        }
+        
+        #inpb {
+            position: absolute;
+            top: 0px;
+            /* 注意，button的必须是rigth：0 ；因为大盒子div宽度变化时，button能随之变化  */
+            right: 0px;
+            width: 80px;
+            height: 40px;
+            outline: none;
+            background-color: rgb(104, 104, 231);
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            transition: all .6s;
+            z-index: 9;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ind">
+        <form action="">
+            <!-- 让button按钮在其上方，用定位的方式加z-index调整 -->
+            <!-- 注意，button的必须是rigth：0 ；因为大盒子div宽度变化时，button能随之变化 -->
+            <input type="text" id="inp1">
+            <input type="button" value="免费注册" id="inpb">
+        </form>
+    </div>
+    <script>
+        var ind = document.querySelector('#ind');
+        var text1 = document.querySelector('#inp1');
+        var but = document.querySelector('#inpb');
+        var flag = true;
+        // 鼠标经过时，div盒子改变宽度,
+        ind.addEventListener('mouseover', function() {
+            ind.style.width = '240px';
+            text1.style.width = '160px';
+            var flag = true;
+
+        });
+        // 定义一个函数，此函数为鼠标离开时，恢复的样式，之所要要分开写成函数，因为要解绑事件方便
+        var mout = function() {
+            ind.style.width = '80px';
+            text1.style.width = '80px';
+            var flag = false;
+
+        }
+        ind.addEventListener('mouseout', mout);
+        // 当text获得焦点时，移除鼠标离开时的事件
+        text1.onfocus = function() {
+            ind.removeEventListener('mouseout', mout);
+        }
+        text1.onblur = function() {
+            if (flag == false) {
+                mout();
+                ind.addEventListener('mouseout', mout);
+            }
+        }
+    </script>
+</body>
+
+</html>

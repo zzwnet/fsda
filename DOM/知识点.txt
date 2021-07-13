@@ -1,0 +1,81 @@
+DOM
+<--
+获取内容 text.innerText
+获取表单里面值得长度:this.value.length
+获取复选框的选中状态，this.checked 若为true则为选中，false为未选中
+-->
+
+1、console.dir()打印返回元素对象，查看里面的属性和方法
+2、getElementsByTagName()方法返回指定标签的对象集合（返回的是一个集合  ，得到的元素是动态的）
+3、element.getElementsByTagName()  elemnt可以指定是哪个父元素 
+4、获取特殊元素对象：
+获取body：document.body
+获取html：document.documentElement
+
+操作元素：样式属性操作
+通过js修改元素的大小、颜色、位置等样式
+element.style 行内样式操作
+element.className 类名样式操作
+
+自定义属性：
+element.getAttribute()  获取属性值
+element.setAttribute('属性','值') 更改属性的值
+element.removeAttribute('属性'); 移除属性
+
+节点操作
+
+父节点：this.parentNode  返回的最近的一个父级节点  没有返回null
+子节点：this.children  返回的是子元素节点
+
+获取第一个或最后一个子元素：firstChind lastChild 返回中包含空格这种文本节点---(不常用)
+
+firstElementChild 返回的是第一个元素节点 lastElementChild 最后一个元素节点
+或者最后一个元素  ul.children[ul.children.length-1]
+
+div.nextSibling  div.previousSibling 返回的是下一个过着上一个节点包含空格这种文本节点---(不常用)
+
+div.nextElementSibling   div.previousElementSibling  返回的是兄弟元素节点
+
+
+创建节点--------------------------创建节点后，需要添加节点操作
+document.createElement('tagName')
+
+添加节点：
+1、node.appendChild(child) 将一个节点添加到指定父节点的子节点列表的末尾
+2、node.insertBefore(child,指定元素) 
+
+删除节点
+node.removeChild(child)  node一定是child的父元素
+
+克隆节点：（浅拷贝  深拷贝） 克隆完成后需要添加到页面   
+ul.children[0].cloneNode(true) 
+
+事件的高级：
+1、注册事件---传统方式和方法监听注册方式
+
+x.addEventListener('click',函数,阶段S) 当阶段S省略或是为false时为冒泡阶段，为true时为捕获阶段
+
+传统方式注册事件 x.onclick=function 只能触发点击事件一次，后面的会把前面的覆盖掉
+事件监听注册x.addEventListener（'click',function(){}）同一个元素添加同一个事件可以添加多个侦听器
+
+删除（解绑）事件--------------
+传统：div.onclick=null;
+x.removeEventlistener('click',fu)
+
+事件对象----------
+bun.onclick=function(e){}  其中的e就是事件对象，里面包含了鼠标的事件对象
+
+e.target  返回的是触发事件的对象，就是点击的那个对象
+e.type 返回事件类型
+e.stopPropagation(); 停止冒泡
+
+事件委托：
+原理：截图---
+
+鼠标坐标---
+1、clientX clientY  相对于浏览器的可视窗口，不管你鼠标滚动页面
+2、pageX pageY 相对于文档的坐标，滚动窗口有影响 -------------常用
+注意 ！！！用position 时  ，记得拼接字符串把px单位带上
+
+键盘事件：
+keyup 和keydown 事件不区分字母大小写 a 和A 都是65  但是可以用keypress

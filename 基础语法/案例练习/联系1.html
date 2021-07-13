@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        div {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        ul {
+            position: absolute;
+            left: 0px;
+            height: 500px;
+            width: 400%;
+            border: 2px solid black;
+            animation: lunbo 3s infinite;
+        }
+        
+        @keyframes lunbo {
+            0% {
+                left: 0px;
+            }
+            100% {
+                left: -600px;
+            }
+        }
+        
+        ul>li {
+            float: left;
+            width: 600px;
+            height: 500px;
+            background-color: pink;
+            list-style: none;
+            overflow: hidden;
+        }
+        
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><img src="img/1.png" alt=""></li>
+            <li><img src="img/2.png" alt=""></li>
+        </ul>
+    </div>
+</body>
+
+</html>

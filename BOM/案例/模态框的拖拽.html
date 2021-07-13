@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 40px;
+            background-color: pink;
+            text-align: center;
+            line-height: 40px;
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title">登录模块</div>
+
+    <script>
+        var title = document.querySelector('.title');
+        // 获取最开始鼠标按下时距离盒子内部的坐标
+        title.addEventListener('mousedown', function(e) {
+            var x = e.pageX - title.offsetLeft;
+            var y = e.pageY - title.offsetTop;
+
+            function move(e) {
+                title.style.left = e.pageX - x + 'px';
+                title.style.top = e.pageY - y + 'px';
+            }
+            document.addEventListener('mousemove', move);
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move);
+            });
+        });
+    </script>
+</body>
+
+</html>

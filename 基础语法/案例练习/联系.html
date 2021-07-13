@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
+    <title>Document</title>
+    <style>
+        .layui-tab-title {
+            display: flex;
+        }
+        
+        .layui-tab-title>li {
+            flex: 1;
+        }
+        
+        .num1>p {
+            position: relative;
+            padding: 0 20px;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .num1>p>i {
+            position: absolute;
+            top: 12px;
+            right: 20px;
+            width: 8px;
+            height: 8px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            transform: rotate(-45deg);
+            transition: all .5s;
+        }
+        
+        .conte {
+            padding: 0 20px;
+            display: none;
+            background-color: rgba(204, 204, 204, .2);
+            line-height: 30px;
+        }
+        
+        .rote {
+            transform: rotate(45deg) !important;
+        }
+        
+        .layui-row .layui-col-xs6 img {
+            width: 100%;
+        }
+        
+        .shu,
+        .pin {
+            width: 100%;
+        }
+        
+        .hh1 {
+            font-size: 20px;
+            text-align: center;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="hh1">凉西西二手图书答疑</h1>
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this tab_fl">卖书答疑</li>
+            <li class="tab_fr">买书答疑</li>
+        </ul>
+        <div class="layui-tab-content" style="height: 100px;">
+            <div class="layui-tab-item layui-show">
+                <div class="num1">
+                    <p id="clic">怎么卖书<i></i></p>
+                    <div class="conte">
+                        <div>
+                            两种方式<br> 1、教材一类的书籍，要卖的可以发一个文档给我们，书名加数量的格式，若有买主需要，我们会联系你
+                            <br>2、可以发布到我们公众号【凉西西BBS】里面的校园论坛里面。有人需要会自动联系你。<br></div>
+                        <div class="layui-row">
+                            <div class="layui-col-xs6">
+                                <img src=" img/1.png " alt=" ">
+                            </div>
+                            <div class="layui-col-xs6">
+                                <img src="img/2.png " alt=" ">
+                            </div>
+                            <div class="layui-col-xs6">
+                                <img src="img/3.png " alt=" ">
+                            </div>
+                            <div class="layui-col-xs6">
+                                <img src="img/3.5.png " alt=" ">
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">买家和卖家的书款 <i></i></p>
+                    <div class="conte">
+                        卖家同学需要把出售的书籍名称和数量发给我们<br> 当有同学向我们这里求购图书时，我们会优先选择向你们购买。
+                        <br>价格谈好后，我们会从你们卖书费用中抽取3%，在交易时我们会多收3% <br> 总计6%，卖家和买家一边出3%。
+                        <br> 卖家将收到=<strong>实际金额中的97%</strong>
+                        <br> 买家将付出=<strong>实际金额中的103%</strong>
+                        <br> 平台收入=<strong>实际金额中的6%</strong>
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">书的价格怎么订 <i></i></p>
+                    <div class="conte">
+                        个别图书的价格我们会根据现有的库存和市场情况动态调整 <br>
+                        <img src="img/shu.jpg" alt="" class="shu">
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">品相极差的图书如何处理 <i></i></p>
+                    <div class="conte">
+                        我们会统一分类，若有人看得上，以0-1折出售，或者卖家免费送
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">如何界定图书品相 <i></i></p>
+                    <div class="conte">
+                        <img src="img/pin.png" alt="" class="pin">
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">联系方式 <i></i></p>
+                    <div class="conte">
+                        公众号：凉西西BBS<br> QQ:418005852 <br> 微信
+                        <img src="img/kefu.png" alt="" class="pin">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <div class="num1">
+                    <p id="clic">如何界定图书品相 <i></i></p>
+                    <div class="conte">
+                        方式两种<br> 1、联系我们需要哪种教材书籍，我们会为你寻找。
+                        <br> 2、进入公众号【凉西西BBS】的校园论坛，进行发布 <strong>详情看卖书答疑第一条</strong>
+
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">售卖的图书品相分类 <i></i></p>
+                    <div class="conte">
+                        一般分为：全新、良好、一般、学霸四个品相
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">买家和卖家的书款 <i></i></p>
+                    <div class="conte">
+                        卖家同学需要把出售的书籍名称和数量发给我们<br> 当有同学向我们这里求购图书时，我们会优先选择向你们购买。
+                        <br>价格谈好后，我们会从你们卖书费用中抽取3%，在交易时我们会多收3% <br> 总计6%，卖家和买家一边出3%。
+                        <br> 卖家将收到=<strong>实际金额中的97%</strong>
+                        <br> 买家将付出=<strong>实际金额中的103%</strong>
+                        <br> 平台收入=<strong>实际金额中的6%</strong>
+                    </div>
+                </div>
+                <div class="num1">
+                    <p id="clic">联系方式 <i></i></p>
+                    <div class="conte">
+                        公众号：凉西西BBS<br> QQ:418005852 <br> 微信
+                        <img src="img/kefu.png" alt="" class="pin">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="//unpkg.com/layui@2.6.8/dist/layui.js "></script>
+
+<script>
+    var flag = true;
+    var nums = document.querySelectorAll("#clic");
+    for (let i = 0; i < nums.length; i++) {
+        nums[i].onclick = function() {
+            var cont = nums[i].parentNode.children[1];
+            if (flag == true) {
+                cont.style.display = 'block';
+                console.log(this.children[0]);
+                nums[i].children[0].classList.add("rote");
+                flag = false;
+            } else {
+                cont.style.display = 'none';
+                nums[i].children[0].classList.remove("rote");
+                flag = true;
+            }
+        }
+
+    }
+</script>
+
+</html>

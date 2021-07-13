@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 案列反思：
+做这种先举例赋值带入，找到规律
+-->
+
+<body>
+    <script>
+        var str = 'asdfdsaasdfdsa';
+        var o = {};
+        for (var i = 0; i < str.length; i++) {
+            var chars = str.charAt(i); //我们用代入法-chars是字符串中的a
+            if (o[chars]) { //先判读对象里有没有
+                o[chars]++;
+            } else {
+                o[chars] = 1;
+            }
+        }
+    </script>
+</body>
+
+</html>

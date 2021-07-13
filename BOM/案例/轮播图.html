@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./动画封装.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        div {
+            overflow: hidden;
+            position: relative;
+            top: 40px;
+            left: 200px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid salmon;
+        }
+        
+        #lun {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 600%;
+            height: 200px;
+            border: 1px solid blueviolet;
+        }
+        
+        #lun>li {
+            float: left;
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgb(23, 178, 240);
+            background-color: pink;
+        }
+        
+        #curs {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        #curs>li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: #fff;
+        }
+        
+        #curs>.current {
+            background-color: darkorange;
+        }
+        
+        #next,
+        #up {
+            position: absolute;
+            top: 50%;
+            z-index: 9;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="button" value=">" id="next">
+        <input type="button" value="<" id="up">
+        <ul id="lun">
+            <li style="background-color: rgb(145, 255, 0);">1</li>
+            <li style="background-color:darkorchid;">2</li>
+            <li style="background-color:darkturquoise;">3</li>
+        </ul>
+        <ul id="curs">
+
+        </ul>
+    </div>
+
+    <script src="./动画封装.js"></script>
+
+    <script>
+        var ull = document.querySelector('#lun');
+        var curs = document.querySelector('#curs');
+        var ulis = ull.querySelectorAll('li');
+        for (var j = 0; j < ulis.length; j++) {
+            var lii = document.createElement('li');
+            lii.setAttribute('index', j);
+            curs.appendChild(lii);
+            curs.children[0].className = 'current';
+            // 排他思想
+            lii.onclick = function() {
+                for (let i = 0; i < curs.children.length; i++) {
+                    curs.children[i].className = '';
+                }
+                // 点击小圆圈轮播
+                var index = this.getAttribute('index');
+                num = index;
+                cu = index;
+                this.className = 'current';
+                animate(ull, -200 * index);
+
+            }
+        }
+        // 克隆第一张
+        var li = ull.children[0].cloneNode(true);
+        ull.appendChild(li);
+        // 按按钮操控轮播图
+        var next = document.querySelector('#next');
+        var upd = document.querySelector('#up');
+        var num = 0;
+        var cu = 0;
+        next.addEventListener('click', function() {
+            // 判断当为最后一张的时
+            if (num == ull.children.length - 1) {
+                ull.style.left = 0;
+                num = 0;
+            }
+            num++;
+            animate(ull, -num * 200);
+            cu++;
+            for (let i = 0; i < curs.children.length; i++) {
+                curs.children[i].className = '';
+            }
+            if (cu == 3) {
+                cu = 0;
+            }
+            curs.children[cu].className = 'current';
+        });
+        upd.addEventListener('click', function() {
+            // 判断当为最后一张的时
+            if (num == 0) {
+                num = ull.children.length - 1;
+                ull.style.left = -200 * num + 'px';
+            }
+            num--;
+            animate(ull, -num * 200);
+            cu--;
+            for (let i = 0; i < curs.children.length; i++) {
+                curs.children[i].className = '';
+            }
+            if (cu < 0) {
+                cu = 2;
+            }
+            curs.children[cu].className = 'current';
+        });
+    </script>
+</body>
+
+</html>

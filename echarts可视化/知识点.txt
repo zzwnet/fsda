@@ -1,0 +1,10 @@
+echarts-使用方法
+1、引用echarts.js文件
+2、准备一个具有大小的容器
+<div class='box'> </div>
+3、初始化echarts实例对象
+var myChart=echarts.init(document.querySelector('.box'));
+4、指定配置和数据(option)
+var option={};
+5、将配置设置给echarts实例对象
+myChart.setOption(option);

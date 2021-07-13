@@ -1,0 +1,46 @@
+1、窗口加载事件 window.onload=function(){}------------截图 
+用addeEventListener不会有多个onload的冲突问题 
+window.addEventlistener('load',function(){})
+
+2、document.addEventlistener('DOMContentLoaded',function(){})------截图
+这个对于图片等多的情况用
+
+setTimeout(回调函数,[间隔的毫秒数])定时器------只调用一次
+var time=setTimeout(调用函数,[延时毫秒数]);
+
+清楚定时器：clearTimeout(time)  里面的time对应一个定时器
+
+setInterval(回调函数,[间隔的毫秒数)定时器-----反复调用函数
+clearInterval() 清除定时器
+
+this指向问题，在全局中this指向window，定时器里面也是指向window
+构造函数指向的是你实例化的对象
+
+获取URL的参数----------------------重点
+substr(x,y) x是起始位值，y是截取长度，y不写默认截取到最后
+split()将字符串以什么字符分隔成数组
+arr=str.split('=');
+
+navigator对象
+一下是判断是否在手机端打开的页面，如果是就打开手机端的页面
+一般加在px端头部里面
+ <script>
+        if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            window.location.href = "../H5/index.html"; //手机
+        }
+    </script>
+
+元素偏移量offset系列-------------截图（重点）
+
+offset可以动态的获取该元素的位置，大小等
+可以用来设置子元素随父元素的变化相应的变化
+
+addEventlistener('scroll',fun);滚动条触发时的事件
+
+解决一个元素有多个定时器的问题，采用代码第一部先清除定时器
+
+手动调用事件
+一个元素自行执行点击事件
+arrow.click();
+
+复选框改变事件change事件-----案例记住用户名

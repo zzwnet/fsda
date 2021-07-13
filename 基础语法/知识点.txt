@@ -1,0 +1,132 @@
+基础类型：
+1、数字型-------------------------------
+最小值：Number.MIN_VALUE
+最大值：Number.MAX_VALUE
+lnfinity 代表无穷大
+-lnfinity 代表无穷小
+NaN 代表一个非数值
+
+isNaN()  这个方法用来判断非数字 并且返回一个值 如果是数字返回的是false 不是数字返回true
+
+字符串型String-------------------------
+字符串长度：str.length
+字符串的拼接：字符串+任何类型=拼接之后的新字符串。注意!!!->只要有字符串和其他类型相拼接，最终的结果时字符串类型
+字符串加变量：引引加加
+
+boolean 类型---------------------------
+true false
+当true和false作为运算的时候，true 当做1 ， false 做为0
+true+1=2  false+1=1
+
+undefined 和null-----------------------
+undefnied 和数字相加 最后结果为NaN 不是数字类型
+
+typeof检测数据类型： (typeof str)
+
++ - * / 等运算的时候，不用考虑字符串类型的数对运算的影响
+
+switch（n） case m： 其中 n 和 m 两个必须是一个全等状态才行，值和数据类型必须相等
+
+标识符命名规范
+变量、函数的命名必须要有意义
+变量的名称一般用名词】函数的名称一般用动词
+
+创建数组：两种方式，最常用的是第二种
+arr=new Array();
+
+var 数组名=[];
+
+return 终止函数，返回值，return后面的代码不会被执行
+
+作用域--------------------全局和局部作用域
+就是代码名字（变量）在某个范围内起作用和效果 目的是为了提高程序的可靠性，减少命名冲突
+全局变量：函数内部没有声明直接赋值的变量是全局变量（浏览器关闭才销毁）
+局部变量：函数的形参也是
+
+预解析--------------------
+
+创建对象的三种方式
+利用字面量  var obj={};
+
+new Object:
+ var ls = new Object;
+    ls.name = '发送到';
+
+构造函数创建对象:
+
+function Star(uanme,age,sex){
+    this.name=uanme;
+    this.age=age;
+    this.sex=sex;
+    this.sing=function(sang){
+        console.log(sang);
+    }
+}
+var ldh=new Star('刘德华',15,'男');
+ldh.sang("冰雨");
+var lm=new Star('黎明',15,'男');
+
+
+里面的属性或方法我们采用键值对的形式  键 属性名： 值 属性值
+内置对象==========================
+
+Math----------------------------------------
+随机数
+Math.random()  返回的是0到1之间的小数，[0,1)
+两个数之间的随机整数，看MDN文档里面有
+日期对象----------------------------------------
+Date()构造函数  必须用new  -----详情看案列
+
+获得Date()总的毫秒数（时间戳）
+var date=new Date();
+date.valueOf() 
+date.getTime()
+
+简单写法： var date1= +new Date();
+
+H5新增的方法：Date.now();
+
+检测数组的方法：
+第一种:instanceof  运算符 可以用来检测是否为数组 if(arr instanceof Array )
+Array.isArray();   if(Array.isArray(arr))
+
+
+push() 在我们数组的末尾 添加一个或多个元素
+console.log(arr.push(3,5));返回的是数组长度
+push 是可以给数组追加新元素
+push() 参数直接写 数组元素就可以
+push完毕后 返回的结果时  新数组的长度
+
+unshift() 在数组的前面添加一个或多个
+这个和push()操作一样
+
+pop() 里面不跟参数，直接删除最后一元素，且返回的值是删除的哪个元素值
+shift() 里面和pop一样
+
+案例分析：我们将筛选出来的数组元素，添加加新的数组中，就可以用push来操作 newArray.push(arr[i])
+
+翻转的数组：arr.reverse();   
+
+冒泡排序
+arr.sort(); （只适合个位数排序）
+解决方案：arr.sort(function(a,b){
+return a-b; 小到大
+return b-a  大到小
+})
+
+返回数组元素的索引号  indexOf(数组元素)  
+只返回第一个满足条件的索引号  找不到元素则返回-1
+lastIndexOf()  从后往前查找   找不到元素则返回-1
+
+
+数组转化为字符串两种方式
+arr.toString()  1,2,3
+
+join(分隔符) 指定分隔的符号
+arr.join('-')  1-2-3
+
+字符串的不可变，尽量少用拼接和创建字符串
+因为字符串的所有方法，都不会修改字符串本身，操作完成后返回一个新的字符串
+
+根据字符返回位置 str.indexOf("春",4) 从第四个往后查找
+

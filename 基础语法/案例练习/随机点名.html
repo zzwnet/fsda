@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 案列反思：
+方式是，Math.random() 随机返回数子
+再用数组包含需要点名的同学，arr[i]  i就是随机数
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //得到一个两数之间的随机整数，包括两个数在内
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        }
+        var arr = ["水电费", "地方", "算法", "发帖", "问过我"];
+        var arri = getRandomIntInclusive(0, arr.length - 1);
+        console.log(arr[arri]);
+    </script>
+</body>
+
+</html>

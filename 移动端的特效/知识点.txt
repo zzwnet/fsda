@@ -1,0 +1,14 @@
+触屏事件touch（触摸事件）
+移动端轮播图
+先定义一个index，用一个定时器，每经过2s，index++，并且ul向左移动，index*宽度
+
+classList 返回元素的类名  div.classList
+添加类名：div.classList.add('');
+删除类名：div.classList.remove('');
+切换类名：div.classList.toggle('');
+
+
+移动端解决click 300毫秒延迟采用js库
+
+
+swiper插件的使用：第一步复制主体部分，第二步复制css样式，第三步复制js

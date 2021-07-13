@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        aside {
+            position: absolute;
+            top: 200px;
+            right: 150px;
+            width: 50px;
+            height: 200px;
+            background-color: pink;
+        }
+        
+        div {
+            height: 1500px;
+        }
+        
+        #asd input {
+            display: none;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <aside id="asd">
+        <input type="button" value="顶部">
+    </aside>
+    <script>
+        var asd = document.querySelector('#asd');
+        var asdtop = asd.offsetTop;
+        document.addEventListener('scroll', function() {
+            if (window.pageYOffset >= asdtop) {
+                asd.style.position = 'fixed';
+                asd.style.top = '0px';
+                asd.children[0].style.display = 'block';
+            }
+            if (window.pageYOffset < asdtop) {
+                asd.style.position = 'absolute';
+                asd.style.top = '200px';
+                asd.children[0].style.display = 'none';
+
+            }
+        });
+        asd.children[0].addEventListener('click', function() {
+            // 里面不跟单位
+            animate(window, 0);
+        });
+
+
+        function animate(obj, target, callback) {
+            // 先清除定时器，防止点击多次，出现多个定时器
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                // 步长
+                var step = (target - window.pageYOffset) / 10;
+                // 改为整数
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (window.pageYOffset == target) {
+                    // 停止动画，停止定时器
+                    clearInterval(obj.timer)
+                        // 判断是否有回调函数
+                    if (callback) {
+                        callback();
+                    }
+                }
+                // obj.style.left = window.pageYOffset + step + 'px';
+                window.scroll(0, window.pageYOffset + step);
+
+            }, 15);
+        }
+    </script>
+</body>
+
+</html>
